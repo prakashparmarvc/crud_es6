@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book List</title>
+</head>
+<body>
+    <h3>Book List (<a href="/create">Add</a>)</h3>
+
+  	<table border="1">
+        <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Description</th>
+            <th colspan="2">Action</th>
+        </tr>
+        <% if (bookData.length > 0) { %>
+            <% for(var i=0; i < bookData.length; i++) { %>
+                <tr>
+                    <td><%= i+1 %></td>
+                    <td><%= bookData[i].name %></td>
+                    <td><%= bookData[i].author %></td>
+                    <td><%= bookData[i].description %></td>
+                    <td><a href="/edit/<%= bookData[i]._id %>">Edit</a></td>
+                    <td><a href="/delete/<%= bookData[i]._id %>" onclick="return confirm('Are you sure to delete this record ?');">Delete</a></td>
+                </tr>
+            <% } %>
+        <% } else { %>
+            <tr>
+                <td colspan="5 style="text-align: center;">No record found.</td>
+            </tr>
+        <% } %>
+    </table>
+</body>
+</html>

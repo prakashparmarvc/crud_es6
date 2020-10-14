@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <title>Edit Book</title>
+</head>
+<body>
+    <h3>Edit Book</h3>
+
+    <form action="/update" method="POST">
+    	<input type="hidden" placeholder="ID" name="id" value="<%= bookData[0]._id %>" />
+    	<p>
+    		Name: <br />
+    		<input type="text" placeholder="Name" name="name" required="" value="<%= bookData[0].name %>" />
+    	</p>
+    	<p>
+    		Author: <br />
+    		<input type="text" placeholder="Author" name="author" required="" value="<%= bookData[0].author %>" />
+    	</p>
+    	<p>
+    		Description: <br />
+    		<textarea placeholder="Description" name="description" required=""><%= bookData[0].description %></textarea>
+    	</p>
+    	<p>
+    		<button type="submit">Update</button>
+    	</p>
+	</form>
+</body>
+</html>
